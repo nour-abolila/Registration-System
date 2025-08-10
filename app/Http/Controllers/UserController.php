@@ -109,7 +109,7 @@ class UserController extends Controller
   public function admindash()
 
   {
-    $user = User::paginate(1);
+    $user = User::where('id', '!=', 1)->paginate(1);
     return view('admin.admin_dash', ['data' => $user]);
   }
 
@@ -137,5 +137,23 @@ class UserController extends Controller
     request()->session()->regenerateToken();
 
     return redirect()->route('showsignin')->with('logout', true);;
+  }
+
+  public function adminedit($id)
+  {
+    $user = user::find($id);
+    return view('admin.admin_edit', ['admin' => $user]);
+  }
+
+  public function adminupdate(Request $request, $id)
+  {
+    $user = user::find($id);
+    $user->username = $request->username;
+    $user->email = $request->email;
+    $user->phone = $request->phone;
+    $user->city = $request->city;
+    $user->date_of_birth = $request->date_of_birth;
+    $user->save();
+    return redirect()->route('admin.dash');
   }
 }

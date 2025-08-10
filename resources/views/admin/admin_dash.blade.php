@@ -181,7 +181,8 @@
                             <td>
                                 <div class="d-flex flex-wrap justify-content-center gap-1">
                                     <a class="btn btn-info">View</a>
-                                    <a class="btn btn-primary">Edit</a>
+                                    <a href="{{ route('admin.edit', $item->id) }}" type="submit"
+                                        class="btn btn-primary">Edit</a>
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </div>

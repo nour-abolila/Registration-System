@@ -22,4 +22,6 @@ Route::middleware(['auth', 'checkrole:user'])->group(function () {
 Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     Route::get('admin', [UserController::class, 'admindash'])->name('admin.dash');
     Route::post('adminlogout', [UserController::class, 'adminlogout'])->name('admin.logout');
+    Route::get('adminedit/{id}', [UserController::class, 'adminedit'])->name('admin.edit');
+    Route::put('adminupdate/{id}', [UserController::class, 'adminupdate'])->name('admin.update');
 });
