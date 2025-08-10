@@ -187,4 +187,13 @@ class UserController extends Controller
 
     
   }
+
+  public function admindestroy($id)
+  {
+
+   $user = user::findorfail($id);
+   $user->delete();
+   return redirect()->route('admin.dash')->with('success', 'تم حذف البوست بنجاح');
+
+  }
 }

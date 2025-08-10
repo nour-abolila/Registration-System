@@ -183,6 +183,9 @@
                                     <a class="btn btn-info">View</a>
                                     <a href="{{ route('admin.edit', $item->id) }}" type="submit"
                                         class="btn btn-primary">Edit</a>
+                                        <form action="{{ route ('admin.delete' ,  $item->id)  }}" method="post">
+                                            @csrf
+                                            @method('delete')
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </div>

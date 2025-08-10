@@ -26,4 +26,5 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     Route::put('adminupdate/{id}', [UserController::class, 'adminupdate'])->name('admin.update');
     Route::get('admincreate', [UserController::class, 'admincreate'])->name('admin.create');
     Route::post('adminstore', [UserController::class, 'adminstore'])->name('admin.store');
+    Route::delete('admindelete/{id}', [UserController::class, 'admindestroy'])->name('admin.delete');
 });
