@@ -156,4 +156,35 @@ class UserController extends Controller
     $user->save();
     return redirect()->route('admin.dash');
   }
+
+  public function admincreate()
+  {
+    return view('admin.admin_create');
+  }
+
+  public function adminstore(Request $request)
+  {
+     $request->validate([
+      'username' => 'required|string|max:255',
+      'email' => 'required|email|unique:users,email',
+      'password' => 'required|min:6|confirmed',
+      'phone' => 'required|phone:EG|unique:users,phone',
+      'city' => 'required|string|max:255',
+      'date_of_birth' => 'required|date',
+    ]);
+
+     $user = new user();
+    $user->username = $request->username;
+    $user->email = $request->email;
+    $user->password = Hash::make($request->password);
+    $user->phone = $request->phone;
+    $user->city = $request->city;
+    $user->date_of_birth = $request->date_of_birth;
+    $user->role = 'user';
+    $user->save();
+
+    return redirect()->route('admin.dash');
+
+    
+  }
 }

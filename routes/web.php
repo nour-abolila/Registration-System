@@ -24,4 +24,6 @@ Route::middleware(['auth', 'checkrole:admin'])->group(function () {
     Route::post('adminlogout', [UserController::class, 'adminlogout'])->name('admin.logout');
     Route::get('adminedit/{id}', [UserController::class, 'adminedit'])->name('admin.edit');
     Route::put('adminupdate/{id}', [UserController::class, 'adminupdate'])->name('admin.update');
+    Route::get('admincreate', [UserController::class, 'admincreate'])->name('admin.create');
+    Route::post('adminstore', [UserController::class, 'adminstore'])->name('admin.store');
 });

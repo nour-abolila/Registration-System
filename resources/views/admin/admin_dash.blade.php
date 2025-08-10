@@ -149,7 +149,7 @@
     <!-- Content -->
     <div class="container my-5 animate__animated animate__fadeIn">
         <div class="text-center mb-3">
-            <a class="btn create-post-btn">User Registration</a>
+            <a href="{{ route('admin.create') }}" type="submit" class="btn create-post-btn">User Registration</a>
         </div>
         <div class="table-responsive">
             <table class="table table-bordered text-center align-middle">
