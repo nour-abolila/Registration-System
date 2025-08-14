@@ -137,7 +137,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark px-4">
         <a class="navbar-brand" href="#">🚀 Dashboard</a>
-        <div class="ms-auto">
+        <div class="ms-auto d-flex align-items-center justify-content-between gap-3">
             <span class="text-white me-3">Welcome {{ Auth::user()->username }}</span>
             <form action="{{ route('admin.logout') }}" method="post">
                 @csrf
@@ -163,12 +163,13 @@
                         <th>date_of_birth</th>
                         <th>created_at</th>
                         <th>updated_at</th>
+                        <th>photo</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{-- هنا خزنت المتغير بتاعى فى متغير جديد --}}
-                    @foreach ($data as $item)
+                    @foreach ($users as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->username }}</td>
@@ -178,15 +179,18 @@
                             <td>{{ $item->date_of_birth }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->updated_at }}</td>
+                            <td><img src="{{ asset('storage/' . $item->photo) }}" 
+                 alt="User Photo" 
+                 style="width:50px; height:50px; object-fit:cover; border-radius:50%; margin-right:10px; border: 2px solid #fff;"></td> 
                             <td>
                                 <div class="d-flex flex-wrap justify-content-center gap-1">
-                                    <a class="btn btn-info">View</a>
+
                                     <a href="{{ route('admin.edit', $item->id) }}" type="submit"
                                         class="btn btn-primary">Edit</a>
-                                        <form action="{{ route ('admin.delete' ,  $item->id)  }}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <form action="{{ route('admin.delete', $item->id) }}" method="post"  onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذا العنصر؟');">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </div>
                             </td>
@@ -196,7 +200,7 @@
             </table>
         </div>
         <div class="d-flex justify-content-center mt-3">
-            {{ $data->links('pagination::bootstrap-5') }}
+            {{ $users->links('pagination::bootstrap-5') }}
         </div>
 
 

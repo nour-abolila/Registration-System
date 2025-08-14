@@ -10,6 +10,7 @@ Route::post('signin', [UserController::class, 'signin'])->name('signin');
 Route::get('signup', [UserController::class, 'signup'])->name('signup');
 Route::post('signup', [UserController::class, 'store'])->name('store');
 
+
 // للمستخدم العادي فقط
 Route::middleware(['auth', 'checkrole:user'])->group(function () {
     Route::get('user_dash', [UserController::class, 'userdash'])->name('user.dash');

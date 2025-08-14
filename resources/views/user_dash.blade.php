@@ -121,41 +121,41 @@
 </head>
 
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark px-4">
         <a class="navbar-brand" href="#">🚀 Dashboard</a>
-        <div class="ms-auto">
-            <span class="text-white me-3">Welcome, {{ $data->username }}</span>
+        <div class="ms-auto d-flex align-items-center justify-content-between gap-3">
+            <span class="text-white me-3">Welcome, {{ $user->username }}</span>
             <form action="{{ route('user.logout') }}" method="post">
                 @csrf
                 <button type="submit" class="btn btn-logout">Logout <i class="bi bi-box-arrow-right ms-1"></i></button>
             </form>
         </div>
     </nav>
-
     <!-- Dashboard Content -->
     <div class="container dashboard-container">
         <div class="glass-card">
-            <div class="info-title"><i class="bi bi-person-circle me-2"></i>Student Info</div>
-            <div class="info-text"><strong>Id : </strong> {{ $data->id }}</div>
-            <div class="info-text"><strong>Username :</strong> {{ $data->username }}</div>
-            <div class="info-text"><strong>Email :</strong> {{ $data->email }}</div>
-            <div class="info-text"><strong>phone :</strong> {{ $data->phone }}</div>
-            <div class="info-text"><strong>City :</strong> {{ $data->city }}</div>
-            <div class="info-text"><strong>Date of Birth :</strong> {{ $data->date_of_birth }}</div>
-
+           <div class="info-title d-flex align-items-center">
+            <img src="{{ asset('storage/' . $user->photo) }}" 
+                 alt="User Photo" 
+                 style="width:50px; height:50px; object-fit:cover; border-radius:50%; margin-right:10px; border: 2px solid #fff;">
+            <span>{{ $user->username }} Data</span>
+        </div>
+            <div class="info-text"><strong>Id : </strong> {{ $user->id }}</div>
+            <div class="info-text"><strong>Username :</strong> {{ $user->username }}</div>
+            <div class="info-text"><strong>Email :</strong> {{ $user->email }}</div>
+            <div class="info-text"><strong>phone :</strong> {{ $user->phone }}</div>
+            <div class="info-text"><strong>City :</strong> {{ $user->city }}</div>
+            <div class="info-text"><strong>Date of Birth :</strong> {{ $user->date_of_birth }}</div>
             <div class="action-buttons mt-4">
-                <a href="{{ route('user.edit', $data->id) }}" type="submit" class="btn btn-edit me-2"><i
+                <a href="{{ route('user.edit', $user->id) }}" type="submit" class="btn btn-edit me-2"><i
                         class="bi bi-pencil-square me-1"></i>Edit</a>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
-
 <div class="game-container">
     <h4 style="text-align: center;">🎮 Game Area</h4>
     <style>
@@ -182,7 +182,7 @@
         }
 
         .cell:hover {
-            background-color: #e0e0e0;
+            background-color: #3e50a0;
         }
 
         .status {

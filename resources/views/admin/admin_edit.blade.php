@@ -115,20 +115,36 @@
 <body>
     <div class="signup-container">
         <div class="signup-box">
-            <h2>Edit Your Account 🚀</h2>
-            <form action="{{ route('admin.update', $admin->id) }}" method="POST">
+            <h2>Edit User Account 🚀</h2>
+            <form action="{{ route('admin.update', $user->id) }}" method="POST" enctype="multipart/form-data"
+>
                 @csrf
                 @method('PUT')
-                <input type="text" name="username" value="{{ $admin->username }}" class="form-control"
+                <input type="text" name="username" value="{{ $user->username }}" class="form-control"
                     placeholder="Username" required>
-                <input type="email" name="email" value="{{ $admin->email }}" class="form-control"
+                <input type="email" name="email" value="{{ $user->email }}" class="form-control"
                     placeholder="Email" required>
-                <input type="tel" name="phone" value="{{ $admin->phone }}" class="form-control"
+                <input type="tel" name="phone" value="{{ $user->phone }}" class="form-control"
                     placeholder="Phone" required>
-                <input type="text" name="city" value="{{ $admin->city }}" class="form-control" placeholder="City"
+                <input type="text" name="city" value="{{ $user->city }}" class="form-control" placeholder="City"
                     required>
-                <input type="date" name="date_of_birth" value="{{ $admin->date_of_birth }}" class="form-control"
+                <input type="date" name="date_of_birth" value="{{ $user->date_of_birth }}" class="form-control"
                     placeholder="Date of Birth" required>
+                              <!-- عرض الصورة الحالية -->
+    @if($user->photo)
+        <div class="mt-3 d-flex align-items-center gap-2">
+    <label class="mb-0">Current Photo:</label>
+    <img src="{{ asset('storage/' . $user->photo) }}" 
+         alt="User Photo" 
+         style="width:100px; height:100px; object-fit:cover; border-radius:50%;">
+</div>
+    @endif
+
+    <!-- اختيار صورة جديدة -->
+    <div class="mt-3">
+        <label>Change Photo:</label>
+        <input type="file" name="photo" class="form-control">
+    </div>
                 <button type="submit" class="btn btn-signup">Edit</button>
             </form>
         </div>

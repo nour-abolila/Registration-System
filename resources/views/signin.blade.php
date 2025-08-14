@@ -157,11 +157,11 @@
     <div class="login-container">
         <div class="login-box">
             <h2>Welcome Back 👋</h2>
-             @if (session('error'))
-            <p style="color: red; background: #fdd; padding: 10px; border: 1px solid red; border-radius: 5px;">
-                {{ session('error') }}
-            </p>
-        @endif
+            @if (session('error'))
+                <p style="color: red; background: #fdd; padding: 10px; border: 1px solid red; border-radius: 5px;">
+                    {{ session('error') }}
+                </p>
+            @endif
             <form action="{{ route('signin') }}" method="POST" autocomplete="off">
                 @csrf
                 <!-- خدعة للمتصفح عشان ما يكملش -->

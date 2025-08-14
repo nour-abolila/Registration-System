@@ -116,17 +116,55 @@
     <div class="signup-container">
         <div class="signup-box">
             <h2>Create Your Account 🚀</h2>
-            <form action="{{ route('store') }}" method="post">
+            <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
-                <input type="text" name="username" class="form-control" placeholder="Username" required>
-                <input type="email" name="email" class="form-control" placeholder="Email" required>
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+                @error('username')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input type="text" name="username" class="form-control" placeholder="Username"
+                    value="{{ old('username') }}" required>
+
+                @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input type="email" name="email" class="form-control" placeholder="Email"
+                    value="{{ old('email') }}" required>
+
+                @error('password')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input type="password" name="password" class="form-control" placeholder="Password"
+                    value="{{ old('password') }}" required>
+
                 <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password"
                     required>
-                <input type="tel" name="phone" class="form-control" placeholder="phone" required>
-                <input type="text" name="city" class="form-control" placeholder="City" required>
-                <input type="date" name="date_of_birth" class="form-control" placeholder="Date of Birth" required>
+
+                @error('phone')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input type="tel" name="phone" class="form-control" placeholder="phone"
+                    value="{{ old('phone') }}" required>
+
+                @error('city')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input type="text" name="city" class="form-control" placeholder="City"
+                    value="{{ old('city') }}" required>
+
+                @error('date_of_birth')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input type="date" name="date_of_birth" class="form-control" placeholder="Date of Birth"
+                    value="{{ old('date_of_birth') }}" required>
+
+                @error('photo')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+                <input type="file" name="photo" id="photo" class="form-control" placeholder="photo"
+                    value="{{ old('photo') }}" required>
+
                 <button type="submit" class="btn btn-signup">Sign Up</button>
             </form>
         </div>
