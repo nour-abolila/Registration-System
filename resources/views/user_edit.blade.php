@@ -129,19 +129,20 @@
                     required>
                 <input type="date" name="date_of_birth" value="{{ $users->date_of_birth }}" class="form-control"
                     placeholder="Date of Birth" required>
-                     <!-- عرض الصورة الحالية -->
-    @if($users->photo)
-        <div class="mt-3">
-            <label>Current Photo:</label><br>
-            <img src="{{ asset('storage/' . $users->photo) }}" alt="User Photo" style="width:100px; height:100px; object-fit:cover; border-radius:50%;">
-        </div>
-    @endif
+                <!-- عرض الصورة الحالية -->
+                @if ($users->photo)
+                    <div class="mt-3">
+                        <label>Current Photo:</label><br>
+                        <img src="{{ asset('storage/' . $users->photo) }}" alt="User Photo"
+                            style="width:100px; height:100px; object-fit:cover; border-radius:50%;">
+                    </div>
+                @endif
 
-    <!-- اختيار صورة جديدة -->
-    <div class="mt-3">
-        <label>Change Photo:</label>
-        <input type="file" name="photo" class="form-control">
-    </div>
+                <!-- اختيار صورة جديدة -->
+                <div class="mt-3">
+                    <label>Change Photo:</label>
+                    <input type="file" name="photo" class="form-control">
+                </div>
                 <button type="submit" class="btn btn-signup">Edit</button>
             </form>
         </div>

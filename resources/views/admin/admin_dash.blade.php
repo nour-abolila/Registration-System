@@ -179,15 +179,16 @@
                             <td>{{ $item->date_of_birth }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->updated_at }}</td>
-                            <td><img src="{{ asset('storage/' . $item->photo) }}" 
-                 alt="User Photo" 
-                 style="width:50px; height:50px; object-fit:cover; border-radius:50%; margin-right:10px; border: 2px solid #fff;"></td> 
+                            <td><img src="{{ asset('storage/' . $item->photo) }}" alt="User Photo"
+                                    style="width:50px; height:50px; object-fit:cover; border-radius:50%; margin-right:10px; border: 2px solid #fff;">
+                            </td>
                             <td>
                                 <div class="d-flex flex-wrap justify-content-center gap-1">
 
                                     <a href="{{ route('admin.edit', $item->id) }}" type="submit"
                                         class="btn btn-primary">Edit</a>
-                                    <form action="{{ route('admin.delete', $item->id) }}" method="post"  onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذا العنصر؟');">
+                                    <form action="{{ route('admin.delete', $item->id) }}" method="post"
+                                        onsubmit="return confirm('هل أنت متأكد أنك تريد حذف هذا العنصر؟');">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger">Delete</button>

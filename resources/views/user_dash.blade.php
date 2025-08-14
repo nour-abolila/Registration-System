@@ -135,12 +135,11 @@
     <!-- Dashboard Content -->
     <div class="container dashboard-container">
         <div class="glass-card">
-           <div class="info-title d-flex align-items-center">
-            <img src="{{ asset('storage/' . $user->photo) }}" 
-                 alt="User Photo" 
-                 style="width:50px; height:50px; object-fit:cover; border-radius:50%; margin-right:10px; border: 2px solid #fff;">
-            <span>{{ $user->username }} Data</span>
-        </div>
+            <div class="info-title d-flex align-items-center">
+                <img src="{{ asset('storage/' . $user->photo) }}" alt="User Photo"
+                    style="width:50px; height:50px; object-fit:cover; border-radius:50%; margin-right:10px; border: 2px solid #fff;">
+                <span>{{ $user->username }} Data</span>
+            </div>
             <div class="info-text"><strong>Id : </strong> {{ $user->id }}</div>
             <div class="info-text"><strong>Username :</strong> {{ $user->username }}</div>
             <div class="info-text"><strong>Email :</strong> {{ $user->email }}</div>

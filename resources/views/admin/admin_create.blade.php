@@ -123,39 +123,46 @@
                 @error('username')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                <input type="text" name="username" class="form-control" placeholder="Username"  value="{{ old('username') }}" required>
+                <input type="text" name="username" class="form-control" placeholder="Username"
+                    value="{{ old('username') }}" required>
 
                 @error('email')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                <input type="email" name="email" class="form-control" placeholder="Email"  value="{{ old('email') }}"  required>
+                <input type="email" name="email" class="form-control" placeholder="Email"
+                    value="{{ old('email') }}" required>
 
                 @error('password')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                <input type="password" name="password" class="form-control" placeholder="Password"  value="{{ old('password') }}" required>
+                <input type="password" name="password" class="form-control" placeholder="Password"
+                    value="{{ old('password') }}" required>
                 <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password"
                     required>
 
                 @error('phone')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                <input type="tel" name="phone" class="form-control" placeholder="phone"   value="{{ old('phone') }}" required>
+                <input type="tel" name="phone" class="form-control" placeholder="phone"
+                    value="{{ old('phone') }}" required>
 
                 @error('city')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                <input type="text" name="city" class="form-control" placeholder="City"  value="{{ old('city') }}" required>
+                <input type="text" name="city" class="form-control" placeholder="City"
+                    value="{{ old('city') }}" required>
 
                 @error('date_of_birth')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                <input type="date" name="date_of_birth" class="form-control" placeholder="Date of Birth"  value="{{ old('date_of_birth') }}" required>
+                <input type="date" name="date_of_birth" class="form-control" placeholder="Date of Birth"
+                    value="{{ old('date_of_birth') }}" required>
 
                 @error('photo')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
-                <input type="file" name="photo" id="photo" class="form-control" placeholder="photo"  value="{{ old('photo') }}" required>
+                <input type="file" name="photo" id="photo" class="form-control" placeholder="photo"
+                    value="{{ old('photo') }}" required>
                 {{-- <select name="role" id="role" class="form-control" required>
                     <option value="" disabled selected>Role</option>
                     <option value="user">User</option>

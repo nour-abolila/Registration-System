@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage; 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
 
@@ -56,11 +56,11 @@ class UserController extends Controller
       'phone' => ['required', 'phone:EG', 'unique:users,phone'],
       'city' => ['required', 'string', 'max:255'],
       'date_of_birth' => ['required', 'date'],
-      'photo'=>['required','image','mimes:jpeg,png,jpg,gif','max:2048']
+      'photo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
     ]);
 
 
-     $photoPath=$request->file('photo')->store('photos','public');
+    $photoPath = $request->file('photo')->store('photos', 'public');
 
 
     // متنساش تسجل الاعمدة دى فى ال filliable 
@@ -103,17 +103,17 @@ class UserController extends Controller
       'phone'         => ['required', 'unique:users,phone,' . $user->id],
       'city'          => ['required', 'string', 'max:255'],
       'date_of_birth' => ['required', 'date'],
-      'photo'=>['nullable','image','mimes:jpeg,png,jpg,gif','max:2048']
+      'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
     ]);
-       
-     if ($request->hasFile('photo')) {
-        // حذف الصورة القديمة
-        if ($user->photo && Storage::disk('public')->exists($user->photo)) {
-            Storage::disk('public')->delete($user->photo);
-        }
 
-        // رفع الصورة الجديدة
-        $validated['photo'] = $request->file('photo')->store('photos', 'public');
+    if ($request->hasFile('photo')) {
+      // حذف الصورة القديمة
+      if ($user->photo && Storage::disk('public')->exists($user->photo)) {
+        Storage::disk('public')->delete($user->photo);
+      }
+
+      // رفع الصورة الجديدة
+      $validated['photo'] = $request->file('photo')->store('photos', 'public');
     }
 
     // تحديث البيانات 
@@ -164,19 +164,19 @@ class UserController extends Controller
       'phone'         => ['required', 'unique:users,phone,' . $user->id],
       'city'          => ['required', 'string', 'max:255'],
       'date_of_birth' => ['required', 'date'],
-      'photo'=>['nullable','image','mimes:jpeg,png,jpg,gif','max:2048']
+      'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
 
     ]);
 
 
     if ($request->hasFile('photo')) {
-        // حذف الصورة القديمة
-        if ($user->photo && Storage::disk('public')->exists($user->photo)) {
-            Storage::disk('public')->delete($user->photo);
-        }
+      // حذف الصورة القديمة
+      if ($user->photo && Storage::disk('public')->exists($user->photo)) {
+        Storage::disk('public')->delete($user->photo);
+      }
 
-        // رفع الصورة الجديدة
-        $validated['photo'] = $request->file('photo')->store('photos', 'public');
+      // رفع الصورة الجديدة
+      $validated['photo'] = $request->file('photo')->store('photos', 'public');
     }
 
 
@@ -201,11 +201,11 @@ class UserController extends Controller
       'phone' => ['required', 'phone:EG', 'unique:users,phone'],
       'city' => ['required', 'string', 'max:255'],
       'date_of_birth' => ['required', 'date'],
-      'photo'=>['required','image','mimes:jpeg,png,jpg,gif','max:2048']
+      'photo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048']
     ]);
 
 
-   $photoPath=$request->file('photo')->store('photos','public');
+    $photoPath = $request->file('photo')->store('photos', 'public');
 
 
     User::create([
