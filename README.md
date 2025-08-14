@@ -48,6 +48,6 @@
 1. **Clone المشروع:**
 
 ```bash
-git clone https://github.com/nour-abolila/CRUD_PROJECT.git
+git clone https://github.com/nour-abolila/Registration-System.git
 
 
