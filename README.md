@@ -41,20 +41,13 @@
 
 ---
 
-## 📂 هيكل المشروع 
 
-```plaintext
-project-folder/
-│── app/
-│── bootstrap/
-│── config/
-│── database/
-│── public/
-│── resources/
-│── routes/
-│── storage/
-│── tests/
-│── .env
-│── artisan
-│── composer.json
-└── README.md
+
+## 🚀 طريقة تشغيل المشروع
+
+1. **Clone المشروع:**
+
+```bash
+git clone https://github.com/nour-abolila/CRUD_PROJECT.git
+
+
